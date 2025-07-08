@@ -1,7 +1,7 @@
 import 'package:bookly/core/utils/costants.dart';
 import 'package:bookly/core/utils/extensios.dart';
 import 'package:bookly/core/utils/styles.dart';
-import 'package:bookly/features/home/presentation/screens/rating_widget.dart';
+import 'package:bookly/features/home/presentation/screens/widgets/rating_widget.dart';
 import 'package:flutter/material.dart';
 
 class BestSellerItem extends StatelessWidget {
