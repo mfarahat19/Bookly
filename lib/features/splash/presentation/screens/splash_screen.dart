@@ -10,7 +10,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    navigateToHome();
+    navigateToHome(context);
   }
   @override
   Widget build(BuildContext context) {
