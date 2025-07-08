@@ -8,9 +8,14 @@ class RatingWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisSize: MainAxisSize.min,
       spacing: 10,
       children: [
-        const Icon(FontAwesomeIcons.solidStar,color: Colors.amber,),
+        const Icon(
+          FontAwesomeIcons.solidStar,
+          color: Colors.amber,
+          size: 20,
+        ),
         Text(
           '(445)',
           style: style13(),

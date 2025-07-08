@@ -1,4 +1,5 @@
 import 'package:bookly/features/home/presentation/screens/widgets/custom_book_bar.dart';
+import 'package:bookly/features/home/presentation/screens/widgets/custom_book_details.dart';
 import 'package:flutter/material.dart';
 
 class BookScreen extends StatelessWidget {
@@ -9,8 +10,9 @@ class BookScreen extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
-          CustomBookBar()
-
+          CustomBookBar(),
+          const SizedBox(height: 20),
+          CustomBookDetails(),
         ],
       ),
     );

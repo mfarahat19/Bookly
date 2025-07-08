@@ -1,5 +1,5 @@
 import 'package:bookly/core/utils/extensios.dart';
-import 'package:bookly/features/home/presentation/screens/widgets/book_item.dart';
+import 'package:bookly/features/home/presentation/screens/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 
 class BookListWidget extends StatelessWidget {
@@ -8,10 +8,12 @@ class BookListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 16),
       height: context.screenHeight * 0.3,
       child: ListView.builder(
-        itemBuilder: (context, index) => BookItem(),
+        itemBuilder: (context, index) => Padding(
+          padding: const EdgeInsets.only(right: 8.0),
+          child: const CustomBookImage(),
+        ),
         itemCount: 8,
         scrollDirection: Axis.horizontal,
       ),

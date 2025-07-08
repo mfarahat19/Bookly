@@ -10,10 +10,12 @@ class BestSellerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      spacing: 10,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          height: context.screenHeight * .15,
+          padding: EdgeInsets.only(bottom: 8),
+          height: context.screenHeight * .17,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
           ),
@@ -21,6 +23,7 @@ class BestSellerItem extends StatelessWidget {
         ),
         Expanded(
           child: Column(
+            spacing: 4,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               SizedBox(
