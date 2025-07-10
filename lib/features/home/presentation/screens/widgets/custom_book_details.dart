@@ -33,7 +33,7 @@ class CustomBookDetails extends StatelessWidget {
         RatingWidget(),
         BooksActions(),
         const SizedBox(
-          height: 30,
+          height: 100,
         ),
         Align(
           alignment: Alignment.centerLeft,
@@ -45,13 +45,8 @@ class CustomBookDetails extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(
-          height: 16,
-        ),
         const SimilarBooksList(),
       ],
     );
   }
 }
-
-

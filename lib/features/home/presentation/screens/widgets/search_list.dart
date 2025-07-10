@@ -1,11 +1,10 @@
-import 'package:bookly/config/router_manager.dart';
 import 'package:bookly/config/routes.dart';
 import 'package:bookly/features/home/presentation/screens/widgets/best_seller_item.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class BestSellerList extends StatelessWidget {
-  const BestSellerList({super.key});
+class SearchList extends StatelessWidget {
+  const SearchList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +13,9 @@ class BestSellerList extends StatelessWidget {
         GoRouter.of(context).push(AppRoutes.bookDetailsRoute);
       },
       child: ListView.builder(
-        physics: const NeverScrollableScrollPhysics(),
-        padding: EdgeInsets.zero,
+        physics: BouncingScrollPhysics(),
+        // physics: const NeverScrollableScrollPhysics(),
+        padding: EdgeInsets.only(left: 16),
         itemBuilder: (context, index) => BestSellerItem(),
         itemCount: 30,
       ),
