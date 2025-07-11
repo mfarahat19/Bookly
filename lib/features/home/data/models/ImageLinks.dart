@@ -1,7 +1,7 @@
 class ImageLinks {
   ImageLinks({
-      this.smallThumbnail, 
-      this.thumbnail,});
+      required this.smallThumbnail,
+      required this.thumbnail,});
 
   ImageLinks.fromJson(dynamic json) {
     smallThumbnail = json['smallThumbnail'];

@@ -5,14 +5,16 @@ import 'package:bookly/features/home/presentation/view%20model/featured_book_cub
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'features/home/presentation/view model/newest_book_cubit/newest_books_cubit.dart';
+import 'features/home/presentation/view model/observer.dart';
 
 void main() {
+  Bloc.observer = MyBlocObserver();
   setupServicesLocator();
   runApp(MultiBlocProvider(providers: [
     BlocProvider(
       create: (context) => FeaturedBooksCubit(
         getIt.get<HomeRepoImpl>(),
-      ),
+      )..getFeaturedBooks(),
     ),
     BlocProvider(
       create: (context) => NewestBooksCubit(

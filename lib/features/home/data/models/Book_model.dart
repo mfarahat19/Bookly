@@ -1,27 +1,22 @@
-import 'Items.dart';
+// BookModel.dart
+import 'VolumeInfo.dart';
 
 class BookModel {
-  BookModel({
-      this.items,});
+  VolumeInfo? volumeInfo;
 
-  BookModel.fromJson(dynamic json) {
-    if (json['items'] != null) {
-      items = [];
-      json['items'].forEach((v) {
-        items?.add(Items.fromJson(v));
-      });
-    }
+  BookModel({this.volumeInfo});
+
+  BookModel.fromJson(Map<String, dynamic> json) {
+    volumeInfo = json['volumeInfo'] != null
+        ? VolumeInfo.fromJson(json['volumeInfo'])
+        : null;
   }
-  List<Items>? items;
-BookModel copyWith({  List<Items>? items,
-}) => BookModel(  items: items ?? this.items,
-);
+
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
-    if (items != null) {
-      map['items'] = items?.map((v) => v.toJson()).toList();
+    if (volumeInfo != null) {
+      map['volumeInfo'] = volumeInfo?.toJson();
     }
     return map;
   }
-
 }
