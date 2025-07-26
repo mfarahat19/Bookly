@@ -10,6 +10,7 @@ void setupServicesLocator() {
       Dio(),
     ),
   );
+
   getIt.registerSingleton<HomeRepoImpl>(
     HomeRepoImpl(
       getIt.get<ApiServices>(),

@@ -15,11 +15,11 @@ class FeaturedBookList extends StatelessWidget {
     return SizedBox(
       height: context.screenHeight * 0.3,
       child: ListView.builder(
+        physics: const BouncingScrollPhysics(),
         itemBuilder: (context, index) => Padding(
           padding: const EdgeInsets.only(right: 8.0),
           child: CustomBookImage(
-            imageUrl: books[index].volumeInfo?.imageLinks?.thumbnail ??
-                'https://raw.githubusercontent.com/felangel/bloc/master/assets/logos/bloc.png',
+           book: books[index],
           ),
         ),
         itemCount: books.length,

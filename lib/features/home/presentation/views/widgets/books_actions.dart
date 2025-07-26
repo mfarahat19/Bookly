@@ -9,8 +9,8 @@ class BooksActions extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        ButtonWidget(text: "99.9 EG", color: Colors.white, isLeft: true),
-        ButtonWidget(text: "Free Preview", color: Colors.orange, isLeft: false),
+        ButtonWidget(text: "Free", color: Colors.white, isLeft: true),
+        ButtonWidget(text: "Preview", color: Colors.orange, isLeft: false),
       ],
     );
   }

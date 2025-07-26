@@ -24,6 +24,8 @@ class VolumeInfo {
     this.previewLink,
     this.infoLink,
     this.canonicalVolumeLink,
+    this.averageRating,
+    this.ratingCount,
   });
 
   VolumeInfo.fromJson(dynamic json) {
@@ -44,7 +46,7 @@ class VolumeInfo {
     pageCount = json['pageCount'];
     printType = json['printType'];
     categories =
-        json['categories'] != null ? json['categories'].cast<String>() : [];
+    json['categories'] != null ? json['categories'].cast<String>() : [];
     maturityRating = json['maturityRating'];
     allowAnonLogging = json['allowAnonLogging'];
     contentVersion = json['contentVersion'];
@@ -56,7 +58,10 @@ class VolumeInfo {
     previewLink = json['previewLink'];
     infoLink = json['infoLink'];
     canonicalVolumeLink = json['canonicalVolumeLink'];
+    averageRating = json['averageRating'];
+    ratingCount = json['ratingCount'];
   }
+
   String? title;
   List<String>? authors;
   String? publisher;
@@ -76,6 +81,9 @@ class VolumeInfo {
   String? previewLink;
   String? infoLink;
   String? canonicalVolumeLink;
+  num? averageRating;
+  num? ratingCount;
+
   VolumeInfo copyWith({
     String? title,
     List<String>? authors,
@@ -96,6 +104,8 @@ class VolumeInfo {
     String? previewLink,
     String? infoLink,
     String? canonicalVolumeLink,
+    double? averageRating,
+    int? ratingCount,
   }) =>
       VolumeInfo(
         title: title ?? this.title,
@@ -117,7 +127,10 @@ class VolumeInfo {
         previewLink: previewLink ?? this.previewLink,
         infoLink: infoLink ?? this.infoLink,
         canonicalVolumeLink: canonicalVolumeLink ?? this.canonicalVolumeLink,
+        averageRating: averageRating ?? this.averageRating,
+        ratingCount: ratingCount ?? this.ratingCount,
       );
+
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['title'] = title;
@@ -148,6 +161,8 @@ class VolumeInfo {
     map['previewLink'] = previewLink;
     map['infoLink'] = infoLink;
     map['canonicalVolumeLink'] = canonicalVolumeLink;
+    map['averageRating'] = averageRating;
+    map['ratingCount'] = ratingCount;
     return map;
   }
 }

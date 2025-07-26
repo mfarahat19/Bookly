@@ -1,5 +1,7 @@
 import 'package:bookly/core/utils/costants.dart';
+import 'package:bookly/core/utils/extensios.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class SplashBody extends StatelessWidget {
   const SplashBody({super.key});
@@ -8,8 +10,12 @@ class SplashBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.asset(AppCostants.logo,height: 45,),
+        Lottie.asset(
+          'assets/jsons/book.json',
+          animate: true,
+          height: context.screenHeight*.3,
+        ),
       ],
-    ) ;
+    );
   }
 }
