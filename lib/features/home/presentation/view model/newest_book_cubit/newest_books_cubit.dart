@@ -5,15 +5,15 @@ import 'package:meta/meta.dart';
 
 part 'newest_books_state.dart';
 
-class NewestBooksCubit extends Cubit<NewestBooksState> {
+class NewestBooksCubit extends Cubit<NewestBooksStates> {
   NewestBooksCubit(this.homeRepo) : super(NewestBooksInitial());
   HomeRepo homeRepo;
   Future<void> getNewestBooks() async {
-    emit(NewestBooksInitial());
+    emit(NewestBooksLoading());
     var result = await homeRepo.fetchNewestBooks();
     result.fold(
-      (fialuer) => emit(
-        NewestBooksError(fialuer.errorMessage),
+      (failure) => emit(
+        NewestBooksError(failure.errorMessage),
       ),
       (books) => emit(NewestBooksSuccess(books)),
     );
