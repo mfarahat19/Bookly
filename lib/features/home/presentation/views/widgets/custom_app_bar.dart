@@ -1,10 +1,6 @@
 import 'package:bookly/core/utils/costants.dart';
-import 'package:bookly/core/utils/servicers_locator.dart';
-import 'package:bookly/features/home/data/repos/home_repo_impl.dart';
-import 'package:bookly/features/search/presentation/view%20model/search_book_cubit/Search_books_cubit.dart';
 import 'package:bookly/features/search/presentation/views/search_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomAppBar extends StatelessWidget {

@@ -1,4 +1,5 @@
 import 'package:bookly/core/utils/extensios.dart';
+import 'package:bookly/core/utils/functions/launch_url.dart';
 import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/core/utils/widgets/loading_animated_widget.dart';
 import 'package:bookly/core/utils/widgets/message_error_widget.dart';
@@ -53,7 +54,10 @@ class CustomBookDetails extends StatelessWidget {
           ),
           BooksActions(
             onPreViewTap: () async {
-              await launchBookUrl(book.volumeInfo?.previewLink ?? '');
+              await launchBookUrl(
+                context,
+                book.volumeInfo?.previewLink ?? '',
+              );
             },
           ),
           SizedBox(
@@ -88,12 +92,5 @@ class CustomBookDetails extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  Future<void> launchBookUrl(String uri) async {
-    final Uri url = Uri.parse(uri);
-    if (await canLaunchUrl(url)) {
-      await launchUrl(url);
-    }
   }
 }
