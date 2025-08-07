@@ -1,19 +1,30 @@
-import 'package:bookly/config/router_manager.dart';
+import 'package:bookly/core/utils/servicers_locator.dart';
+import 'package:bookly/app.dart';
+import 'package:bookly/features/home/data/repos/home_repo_impl.dart';
+import 'package:bookly/features/home/presentation/view%20model/featured_book_cubit/featured_books_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'features/home/presentation/view model/newest_book_cubit/newest_books_cubit.dart';
+import 'features/home/presentation/view model/observer.dart';
 
 void main() {
-  runApp(const Bookly());
-}
-
-class Bookly extends StatelessWidget {
-  const Bookly({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: RouterManager.router,
-      theme: ThemeData.dark(),
-      debugShowCheckedModeBanner: false,
-    );
-  }
+  Bloc.observer = MyBlocObserver();
+  setupServicesLocator();
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => FeaturedBooksCubit(
+            getIt.get<HomeRepoImpl>(),
+          )..getFeaturedBooks(),
+        ),
+        BlocProvider(
+          create: (context) => NewestBooksCubit(
+            getIt.get<HomeRepoImpl>(),
+          )..getNewestBooks(),
+        )
+      ],
+      child: Bookly(),
+    ),
+  );
 }
