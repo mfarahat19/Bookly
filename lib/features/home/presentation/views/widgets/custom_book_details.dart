@@ -11,6 +11,7 @@ import 'package:bookly/features/home/presentation/views/widgets/rating_widget.da
 import 'package:bookly/features/home/presentation/views/widgets/similar_books_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CustomBookDetails extends StatelessWidget {
   const CustomBookDetails({super.key, required this.book});
@@ -50,7 +51,11 @@ class CustomBookDetails extends StatelessWidget {
             count: book.volumeInfo?.averageRating ?? 0,
             rating: book.volumeInfo?.ratingCount ?? 0,
           ),
-          BooksActions(),
+          BooksActions(
+            onPreViewTap: () async {
+              await launchBookUrl(book.volumeInfo?.previewLink ?? '');
+            },
+          ),
           SizedBox(
             height: height * .04,
           ),
@@ -83,5 +88,12 @@ class CustomBookDetails extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Future<void> launchBookUrl(String uri) async {
+    final Uri url = Uri.parse(uri);
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    }
   }
 }

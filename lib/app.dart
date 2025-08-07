@@ -1,5 +1,6 @@
 import 'package:bookly/config/router_manager.dart';
 import 'package:flutter/material.dart';
+
 class Bookly extends StatelessWidget {
   const Bookly({super.key});
 

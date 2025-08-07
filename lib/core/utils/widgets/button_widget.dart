@@ -2,21 +2,22 @@ import 'package:bookly/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class ButtonWidget extends StatelessWidget {
-  const ButtonWidget({
-    super.key,
-    required this.text,
-    required this.color,
-    required this.isLeft,
-  });
+  const ButtonWidget(
+      {super.key,
+      required this.text,
+      required this.color,
+      required this.isLeft,
+      required this.onTap});
 
   final String text;
   final bool isLeft;
   final Color color;
+  final Function() onTap;
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {},
+      onPressed: onTap,
       style: TextButton.styleFrom(
         fixedSize: Size(170, 40),
         backgroundColor: color,
